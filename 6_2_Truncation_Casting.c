@@ -8,5 +8,8 @@ int main(void)
     int x = get_int("Whats is x: ");        // 7
     int y = get_int("Whats is y: ");        // 2
 
-    printf("x divided by y = %i\n", x / y); // gives 3 insted of 3.5
+    printf("x divided by y (truncation) = %i\n", x / y); // gives 3 insted of 3.5
+    
+    // catsing x to a float
+    printf("x divided by y (using casting) = %f\n", (float) x / y); // gives 3.5
 }
