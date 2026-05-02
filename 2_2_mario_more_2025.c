@@ -35,6 +35,7 @@ void create_pyramids(int height)
         // print space betweent the pyramids
         printf("  ");
         // call print_bricks for right pyramid
+        print_bricks(row_num);
         // print new line and increment row_num
         printf("\n");
         row_num++;
