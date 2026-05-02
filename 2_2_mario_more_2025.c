@@ -2,9 +2,10 @@
 #include <cs50.h>
 #include <stdio.h>
 
-// create_pyramids function prototype
-// print_empty function prototype
-// print_bricks function prototype
+// declare functions prototypes
+void create_pyramids(int height);
+void print_empty(int height, int row_num);
+void print_bricks(int row_num);
 
 int main(void)
 {
@@ -17,25 +18,46 @@ int main(void)
     while (height < 1 || height > 8);
     
     // call create_pyramids function
+    create_pyramids(height);
 }
 
 
 // define create_pyramids function
-    // initilize row_num
-    // loop through height
-        // call print_empty
+void create_pyramids(int height)
+{
+    int row_num = 1;
+    for (int i = 0; i < height; i++)
+    {
+        // print space for the row of the left pyramid
+        print_empty(height, row_num);
         // call print_bricks for left pyramid
+        print_bricks(row_num);
         // print space betweent the pyramids
+        printf("  ");
         // call print_bricks for right pyramid
-        // print new line
-
+        // print new line and increment row_num
+        printf("\n");
+        row_num++;
+    }
+}
 
 // define print_empty function
+void print_empty(int height, int row_num)
+{
     // initilize space_size with (height - row_num)
-    // loop throught space_size
-        // print space
-
+    int space_size = height - row_num;
+    for (int space = 0; space < space_size; space++)
+    {
+        printf(" ");
+    }
+}
+    
 
 // define print_bricks function
-    // loop through row_num
-        // print brick
+void print_bricks(int row_num)
+{
+    for (int brick = 0; brick < row_num; brick++)
+    {
+        printf("#");
+    }
+} 
