@@ -42,6 +42,7 @@ void create_pyramids(int height)
     }
 }
 
+
 // define print_empty function
 void print_empty(int height, int row_num)
 {
