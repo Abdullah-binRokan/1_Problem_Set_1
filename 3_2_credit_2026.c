@@ -12,6 +12,7 @@
 
 #include <cs50.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -22,16 +23,15 @@ int main(void)
     // string card_type = check_card_type(card_number)
 
     // call luhns_algo_checksum(card_type)
-
-    // TODO handle exiting the program
-
 }
 
 
 // define print_result(string result) function
     // if result == "invalid"
-        // print "INVALID" and return 1
-    // print result and return 0
+        // print "INVALID"
+        // terminate program with an error exit code
+    // print result
+    // terminate program with success exit code
 
 
 // define check_length(card_number) to check validity of length
