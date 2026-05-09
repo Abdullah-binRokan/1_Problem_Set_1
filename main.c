@@ -52,11 +52,12 @@ void check_length(long card_number)
 {
     const long CARD_MIN_LEN = 1000000000000;
     const long CARD_MAX_LEN = 1000000000000000;
+    
     if (card_number <= CARD_MIN_LEN || card_number >= CARD_MAX_LEN)
     {
         print_result("invalid");
     }
-    printf("Valid length\n");
+    printf("valid length");
 }
 
 
