@@ -50,9 +50,15 @@ void print_result(string result)
 // define check_length to check validity of length
 void check_length(long card_number)
 {
-    const long CARD_MIN_LEN = 1000000000000;
-    const long CARD_MAX_LEN = 1000000000000000;
-    if (card_number <= CARD_MIN_LEN || card_number >= CARD_MAX_LEN)
+    const long CARD_MIN_SHORT_LEN = 1000000000000;
+    const long CARD_MAX_SHORT_LEN = 9999999999999;
+    const long CARD_MIN_LONG_LEN = 100000000000000;
+    const long CARD_MAX_LONG_LEN = 9999999999999999;
+    bool is_valid_short_len = (card_number >= CARD_MIN_SHORT_LEN && 
+                               card_number <= CARD_MAX_SHORT_LEN);
+    bool is_valid_long_len = (card_number >= CARD_MIN_LONG_LEN && 
+                              card_number <= CARD_MAX_LONG_LEN);
+    if (!is_valid_short_len && !is_valid_long_len)
     {
         print_result("invalid");
     }
