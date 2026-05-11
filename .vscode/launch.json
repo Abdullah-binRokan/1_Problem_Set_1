@@ -5,10 +5,10 @@
             "name": "Debug C",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/main",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
             "MIMode": "lldb",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build active file",
             "externalConsole": true
         }
     ]

@@ -17,6 +17,8 @@
 
 // functions prototypes
 void check_length(long card_number);
+string check_card_type(long card_number);
+int get_first_two_digits(long card_number);
 // void print_result(string result);
 
 int main(void)
@@ -25,7 +27,7 @@ int main(void)
 
     check_length(card_number);
 
-    // string card_type = check_card_type(card_number)
+    string card_type = check_card_type(card_number);
 
     // call luhns_algo_checksum(card_type)
 }
@@ -65,13 +67,16 @@ void check_length(long card_number)
     printf("Valid length\n");
 }
 
-
 // define check_card_type(card_number) to check type of credit card
+string check_card_type(long card_number)
+{
+    int first_two_digits = get_first_two_digits(card_number);
+    printf("first two digits = %i ", first_two_digits);
     // if numbers start with 34 or 37 return AMEX 
     // else if numbers start with 51-55 return MASTERCARD 
     // else if numbers start with 4 return VISA 
     // else call print_result("invalid")
-
+}
 
 // define luhns_algo_checksum(string card_type) to check validity
     // int sum = 0
@@ -89,4 +94,14 @@ void check_length(long card_number)
     // If the total’s last digit is 0 (total modulo 10 is congruent to 0)
         // call print_result(card_type)
     // call print_result("invalid")
-        
+
+/* check_card_type helper functions */
+int get_first_two_digits(long card_number)
+{
+    while (card_number > 99)
+    {
+        card_number /= 10;
+    }
+    // return the first two digits
+    return card_number;
+}

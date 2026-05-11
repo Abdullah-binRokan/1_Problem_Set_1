@@ -2,14 +2,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+                "label": "build active file",
             "type": "shell",
             "command": "clang",
             "args": [
                 "-g",
-                "main.c",
+                "${file}",
                 "-o",
-                "main",
+                "${fileDirname}/${fileBasenameNoExtension}",
                 "-lcs50"
             ],
             "group": {
