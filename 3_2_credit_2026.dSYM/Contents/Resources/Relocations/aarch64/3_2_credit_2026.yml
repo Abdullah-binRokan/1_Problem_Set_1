@@ -2,10 +2,11 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/ar/Documents/CS/misc/CS50x/Week1/1_Problem_Set_1/3_2_credit_2026'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000030B0, symSize: 0x40 }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000030B0, symSize: 0x40 }
-  - { offsetInCU: 0x77, offset: 0x77, size: 0x8, addend: 0x0, symName: _check_length, symObjAddr: 0x40, symBinAddr: 0x1000030F0, symSize: 0x128 }
-  - { offsetInCU: 0xEF, offset: 0xEF, size: 0x8, addend: 0x0, symName: _check_card_type, symObjAddr: 0x168, symBinAddr: 0x100003218, symSize: 0x48 }
-  - { offsetInCU: 0x125, offset: 0x125, size: 0x8, addend: 0x0, symName: _print_result, symObjAddr: 0x1B0, symBinAddr: 0x100003260, symSize: 0x64 }
-  - { offsetInCU: 0x149, offset: 0x149, size: 0x8, addend: 0x0, symName: _get_first_two_digits, symObjAddr: 0x214, symBinAddr: 0x1000032C4, symSize: 0x44 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002FD8, symSize: 0x58 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002FD8, symSize: 0x58 }
+  - { offsetInCU: 0x77, offset: 0x77, size: 0x8, addend: 0x0, symName: _check_length, symObjAddr: 0x58, symBinAddr: 0x100003030, symSize: 0x11C }
+  - { offsetInCU: 0xEF, offset: 0xEF, size: 0x8, addend: 0x0, symName: _check_card_type, symObjAddr: 0x174, symBinAddr: 0x10000314C, symSize: 0xD0 }
+  - { offsetInCU: 0x133, offset: 0x133, size: 0x8, addend: 0x0, symName: _print_result, symObjAddr: 0x244, symBinAddr: 0x10000321C, symSize: 0x64 }
+  - { offsetInCU: 0x157, offset: 0x157, size: 0x8, addend: 0x0, symName: _get_first_two_digits, symObjAddr: 0x2A8, symBinAddr: 0x100003280, symSize: 0x44 }
+  - { offsetInCU: 0x17F, offset: 0x17F, size: 0x8, addend: 0x0, symName: _get_first_digit, symObjAddr: 0x2EC, symBinAddr: 0x1000032C4, symSize: 0x44 }
 ...
