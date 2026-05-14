@@ -16,22 +16,18 @@
 #include <string.h>
 
 // functions prototypes
-void check_length(long card_number);
+int check_length(long card_number);
 string check_card_type(long card_number);
 int get_first_two_digits(long card_number);
-int get_first_digit(long card_number);
+void luhns_algo_checksum(int card_len, string card_type, long card_number);
 // void print_result(string result);
 
 int main(void)
 {
     long card_number = get_long("Number: ");
-
-    check_length(card_number);
-
+    int card_len = check_length(card_number);
     string card_type = check_card_type(card_number);
-    printf("card_type = %s\n", card_type);
-
-    // call luhns_algo_checksum(card_type)
+    luhns_algo_checksum(card_len, card_type, card_number);
 }
 
 
@@ -52,7 +48,7 @@ void print_result(string result)
 
 
 // define check_length to check validity of length
-void check_length(long card_number)
+int check_length(long card_number)
 {
     const long CARD_MIN_SHORT_LEN = 1000000000000;
     const long CARD_MAX_SHORT_LEN = 9999999999999;
@@ -66,6 +62,15 @@ void check_length(long card_number)
     {
         print_result("invalid");
     }
+
+    // calculate length
+    int len = 0;
+    while (card_number > 1)
+    {
+        card_number /= 10;
+        len++;
+    }
+    return len;
 }
 
 // define check_card_type(card_number) to check type of credit card
@@ -99,11 +104,15 @@ string check_card_type(long card_number)
     }
 }
 
-// define luhns_algo_checksum(string card_type) to check validity
-    // int sum = 0
+// define luhns_algo_checksum to check validity
+void luhns_algo_checksum(int card_len, string card_type, long card_number)
+{
+    int sum = 0;
+    int multiplied_by_two;
+    printf("card length = %i\n", card_len);
 
     // loop through every other digit, starting from second-to-last digit
-        // int multiplied_by_two = 2 * i
+        // multiplied_by_two = 2 * i;
         // if  multiplied_by_two > 10
             // sum += multiplied_by_two[0] + multiplied_by_two[1]  
         // else
@@ -115,6 +124,8 @@ string check_card_type(long card_number)
     // If the total’s last digit is 0 (total modulo 10 is congruent to 0)
         // call print_result(card_type)
     // call print_result("invalid")
+}
+
 
 /* check_card_type helper functions */
 int get_first_two_digits(long card_number)
