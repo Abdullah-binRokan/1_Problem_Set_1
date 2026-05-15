@@ -50,8 +50,10 @@ void print_result(string result)
 // define check_length to check validity of length
 int check_length(long card_number)
 {
+    // min short_len is 13 digits, max short_len is 13 digits
     const long CARD_MIN_SHORT_LEN = 1000000000000;
     const long CARD_MAX_SHORT_LEN = 9999999999999;
+    // min long_len is 15 digits, max long_len is 16 digits
     const long CARD_MIN_LONG_LEN = 100000000000000;
     const long CARD_MAX_LONG_LEN = 9999999999999999;
     bool is_valid_short_len = (card_number >= CARD_MIN_SHORT_LEN && 
@@ -109,15 +111,22 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
 {
     int sum = 0;
     int multiplied_by_two;
-    printf("card length = %i\n", card_len);
+    long second_to_last_digits = card_number / 10;
 
-    // loop through every other digit, starting from second-to-last digit
-        // multiplied_by_two = 2 * i;
+    // loop through every other digit, starting from second_to_last digit
+    for (int i = 0, len = card_len / 2; i < len; i++)
+    {
+        // extract the last digit by modulus operator then multiply by 2
+        multiplied_by_two = 2 * (second_to_last_digits % 10);
+        printf("multiplied by two =  %i\n", multiplied_by_two);
         // if  multiplied_by_two > 10
             // sum += multiplied_by_two[0] + multiplied_by_two[1]  
         // else
             // sum += multiplied_by_two
-            
+        // remove the last two digits using division
+        second_to_last_digits /= 100;
+    }
+
     // loop through every other digit, starting from last digit
         // sum += j
 
