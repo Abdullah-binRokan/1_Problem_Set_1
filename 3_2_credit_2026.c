@@ -119,10 +119,19 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
         // extract the last digit by modulus operator then multiply by 2
         multiplied_by_two = 2 * (second_to_last_digits % 10);
         printf("multiplied by two =  %i\n", multiplied_by_two);
-        // if  multiplied_by_two > 10
-            // sum += multiplied_by_two[0] + multiplied_by_two[1]  
-        // else
-            // sum += multiplied_by_two
+        if (multiplied_by_two >= 10)
+        {
+            // add products digits not the product itself (12 -> 1 + 2)
+            for (int digit = 0; digit < 2; digit++)
+            {
+                sum += multiplied_by_two % 10;
+                multiplied_by_two /= 10;
+            }
+        } 
+        else
+        {
+            sum += multiplied_by_two;
+        }
         // remove the last two digits using division
         second_to_last_digits /= 100;
     }
