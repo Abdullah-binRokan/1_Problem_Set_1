@@ -110,14 +110,14 @@ string check_card_type(long card_number)
 void luhns_algo_checksum(int card_len, string card_type, long card_number)
 {
     int sum = 0;
-    int multiplied_by_two;
-    long second_to_last_digits = card_number / 10;
 
     // loop through every other digit, starting from second_to_last digit
+    long start_from_2nd_to_last_digit = card_number / 10;
+    int multiplied_by_two;
     for (int i = 0, len = card_len / 2; i < len; i++)
     {
         // extract the last digit by modulus operator then multiply by 2
-        multiplied_by_two = 2 * (second_to_last_digits % 10);
+        multiplied_by_two = 2 * (start_from_2nd_to_last_digit % 10);
         printf("multiplied by two =  %i\n", multiplied_by_two);
         if (multiplied_by_two >= 10)
         {
@@ -133,12 +133,18 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
             sum += multiplied_by_two;
         }
         // remove the last two digits using division
-        second_to_last_digits /= 100;
+        start_from_2nd_to_last_digit /= 100;
     }
 
     // loop through every other digit, starting from last digit
-        // sum += j
-
+    long start_from_last_digit = card_number;
+    for (int j =0, len = card_len / 2; j < len; j++)
+    {
+        // extract the last digit by modulus operator & add it to sum
+        sum += start_from_last_digit % 10;
+        // remove the last tow digit using division
+        start_from_last_digit /= 100;
+    }
     // If the total’s last digit is 0 (total modulo 10 is congruent to 0)
         // call print_result(card_type)
     // call print_result("invalid")
