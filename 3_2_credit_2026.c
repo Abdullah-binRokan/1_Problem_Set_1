@@ -11,6 +11,7 @@
 */
 
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -114,11 +115,10 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
     // loop through every other digit, starting from second_to_last digit
     long start_from_2nd_to_last_digit = card_number / 10;
     int multiplied_by_two;
-    for (int i = 0, len = card_len / 2; i < len; i++)
+    for (int i = 0, len = round(card_len/ 2.0); i < len; i++)
     {
         // extract the last digit by modulus operator then multiply by 2
         multiplied_by_two = 2 * (start_from_2nd_to_last_digit % 10);
-        printf("multiplied by two =  %i\n", multiplied_by_two);
         if (multiplied_by_two >= 10)
         {
             // add products digits not the product itself (12 -> 1 + 2)
@@ -138,7 +138,7 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
 
     // loop through every other digit, starting from last digit
     long start_from_last_digit = card_number;
-    for (int j =0, len = card_len / 2; j < len; j++)
+    for (int j =0, len = round(card_len/ 2.0); j < len; j++)
     {
         // extract the last digit by modulus operator & add it to sum
         sum += start_from_last_digit % 10;
