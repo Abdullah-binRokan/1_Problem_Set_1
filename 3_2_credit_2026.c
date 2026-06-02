@@ -104,6 +104,7 @@ string check_card_type(long card_number)
             }
             // else call print_result("invalid")
             print_result("invalid");
+            return("invalid");
     }
 }
 
@@ -115,7 +116,7 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
     // loop through every other digit, starting from second_to_last digit
     long start_from_2nd_to_last_digit = card_number / 10;
     int multiplied_by_two;
-    for (int i = 0, len = round(card_len/ 2.0); i < len; i++)
+    for (int i = 0, len = card_len / 2; i < len; i++)
     {
         // extract the last digit by modulus operator then multiply by 2
         multiplied_by_two = 2 * (start_from_2nd_to_last_digit % 10);
@@ -138,6 +139,7 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
 
     // loop through every other digit, starting from last digit
     long start_from_last_digit = card_number;
+    // round up len so we don't miss the first digit
     for (int j =0, len = round(card_len/ 2.0); j < len; j++)
     {
         // extract the last digit by modulus operator & add it to sum
@@ -145,9 +147,15 @@ void luhns_algo_checksum(int card_len, string card_type, long card_number)
         // remove the last tow digit using division
         start_from_last_digit /= 100;
     }
-    // If the total’s last digit is 0 (total modulo 10 is congruent to 0)
-        // call print_result(card_type)
-    // call print_result("invalid")
+    // Valid If the total’s last digit is 0 (total modulo 10 is congruent to 0)
+    if (sum % 10 == 0)
+    {
+        print_result(card_type);
+    }
+    else
+    {
+        print_result("invalid");
+    }
 }
 
 
