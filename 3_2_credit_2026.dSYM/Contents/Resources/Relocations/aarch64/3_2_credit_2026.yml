@@ -2,11 +2,12 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/ar/Documents/CS/misc/CS50x/Week1/1_Problem_Set_1/3_2_credit_2026'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002E18, symSize: 0x54 }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002E18, symSize: 0x54 }
-  - { offsetInCU: 0x85, offset: 0x85, size: 0x8, addend: 0x0, symName: _check_length, symObjAddr: 0x54, symBinAddr: 0x100002E6C, symSize: 0x15C }
-  - { offsetInCU: 0x10F, offset: 0x10F, size: 0x8, addend: 0x0, symName: _check_card_type, symObjAddr: 0x1B0, symBinAddr: 0x100002FC8, symSize: 0xD4 }
-  - { offsetInCU: 0x153, offset: 0x153, size: 0x8, addend: 0x0, symName: _luhns_algo_checksum, symObjAddr: 0x284, symBinAddr: 0x10000309C, symSize: 0x1C4 }
-  - { offsetInCU: 0x23D, offset: 0x23D, size: 0x8, addend: 0x0, symName: _print_result, symObjAddr: 0x448, symBinAddr: 0x100003260, symSize: 0x64 }
-  - { offsetInCU: 0x261, offset: 0x261, size: 0x8, addend: 0x0, symName: _get_first_two_digits, symObjAddr: 0x4AC, symBinAddr: 0x1000032C4, symSize: 0x44 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002C98, symSize: 0x60 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002C98, symSize: 0x60 }
+  - { offsetInCU: 0x85, offset: 0x85, size: 0x8, addend: 0x0, symName: _check_length, symObjAddr: 0x60, symBinAddr: 0x100002CF8, symSize: 0x15C }
+  - { offsetInCU: 0x10F, offset: 0x10F, size: 0x8, addend: 0x0, symName: _check_card_type, symObjAddr: 0x1BC, symBinAddr: 0x100002E54, symSize: 0xE0 }
+  - { offsetInCU: 0x153, offset: 0x153, size: 0x8, addend: 0x0, symName: _check_type_matches_length, symObjAddr: 0x29C, symBinAddr: 0x100002F34, symSize: 0x134 }
+  - { offsetInCU: 0x193, offset: 0x193, size: 0x8, addend: 0x0, symName: _luhns_algo_checksum, symObjAddr: 0x3D0, symBinAddr: 0x100003068, symSize: 0x200 }
+  - { offsetInCU: 0x27B, offset: 0x27B, size: 0x8, addend: 0x0, symName: _print_result, symObjAddr: 0x5D0, symBinAddr: 0x100003268, symSize: 0x64 }
+  - { offsetInCU: 0x29F, offset: 0x29F, size: 0x8, addend: 0x0, symName: _get_first_two_digits, symObjAddr: 0x634, symBinAddr: 0x1000032CC, symSize: 0x44 }
 ...

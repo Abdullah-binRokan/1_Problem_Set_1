@@ -20,6 +20,7 @@
 int check_length(long card_number);
 string check_card_type(long card_number);
 int get_first_two_digits(long card_number);
+void check_type_matches_length(string card_type, int card_len);
 void luhns_algo_checksum(int card_len, string card_type, long card_number);
 // void print_result(string result);
 
@@ -28,6 +29,7 @@ int main(void)
     long card_number = get_long("Number: ");
     int card_len = check_length(card_number);
     string card_type = check_card_type(card_number);
+    check_type_matches_length(card_type, card_len);
     luhns_algo_checksum(card_len, card_type, card_number);
 }
 
@@ -39,8 +41,8 @@ void print_result(string result)
     if (strcmp(result, "invalid") == 0)
     {
         printf("INVALID\n");
-        // terminate program with an error exit code
-        exit(1);
+        // terminate program with success exit code
+        exit(0);
     }
     printf("%s\n", result);
     // terminate program with success exit code
@@ -105,6 +107,19 @@ string check_card_type(long card_number)
             // else call print_result("invalid")
             print_result("invalid");
             return("invalid");
+    }
+}
+
+void check_type_matches_length(string card_type, int card_len)
+{
+    // AMEX uses 15-digit, MasterCard uses 16-digit, Visa uses 13- and 16-digit 
+    bool is_matched = (strcmp (card_type, "AMEX") == 0 && card_len == 15) ||
+                      (strcmp (card_type, "MASTERCARD") == 0 && card_len == 16) ||
+                      (strcmp (card_type, "VISA") == 0 && (card_len == 13 || card_len == 16));
+    // if type doesn't meet length call print_result("invalid")
+    if (!is_matched)
+    {
+        print_result("invalid");
     }
 }
 
