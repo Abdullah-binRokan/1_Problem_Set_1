@@ -78,6 +78,7 @@ int check_length(long card_number)
     return len;
 }
 
+
 // define check_card_type(card_number) to check type of credit card
 string check_card_type(long card_number)
 {
@@ -110,18 +111,31 @@ string check_card_type(long card_number)
     }
 }
 
+// define check_type_matches_length function
 void check_type_matches_length(string card_type, int card_len)
 {
-    // AMEX uses 15-digit, MasterCard uses 16-digit, Visa uses 13- and 16-digit 
-    bool is_matched = (strcmp (card_type, "AMEX") == 0 && card_len == 15) ||
-                      (strcmp (card_type, "MASTERCARD") == 0 && card_len == 16) ||
-                      (strcmp (card_type, "VISA") == 0 && (card_len == 13 || card_len == 16));
-    // if type doesn't meet length call print_result("invalid")
-    if (!is_matched)
+    // Guard Clause: check if AMEX uses 15-digit
+    if (strcmp(card_type, "AMEX") == 0 && card_len == 15)
     {
-        print_result("invalid");
+        return; // valid, exit early
     }
+
+    // Guard Clause: check if MasterCard uses 16-digit
+    if (strcmp(card_type, "MASTERCARD") == 0 && card_len == 16)
+    {
+        return;
+    }
+
+    // Guard Clause: check if Visa uses 13- and 16-digit 
+    if (strcmp(card_type, "VISA") == 0 && (card_len == 13 || card_len == 16))
+    {
+        return;
+    }
+
+    // Fallthrough: If no matches succeeded, it is strictly invalid
+    print_result("invalid");
 }
+ 
 
 // define luhns_algo_checksum to check validity
 void luhns_algo_checksum(int card_len, string card_type, long card_number)
