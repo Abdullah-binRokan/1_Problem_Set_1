@@ -70,7 +70,7 @@ int check_length(long card_number)
 
     // calculate length
     int len = 0;
-    while (card_number > 1)
+    while (card_number > 0)
     {
         card_number /= 10;
         len++;
@@ -114,19 +114,19 @@ string check_card_type(long card_number)
 // define check_type_matches_length function
 void check_type_matches_length(string card_type, int card_len)
 {
-    // Guard Clause: check if AMEX uses 15-digit
+    // Guard Clause 1: check if AMEX uses 15-digit
     if (strcmp(card_type, "AMEX") == 0 && card_len == 15)
     {
         return; // valid, exit early
     }
 
-    // Guard Clause: check if MasterCard uses 16-digit
+    // Guard Clause 2: check if MasterCard uses 16-digit
     if (strcmp(card_type, "MASTERCARD") == 0 && card_len == 16)
     {
         return;
     }
 
-    // Guard Clause: check if Visa uses 13- and 16-digit 
+    // Guard Clause 3: check if Visa uses 13- and 16-digit 
     if (strcmp(card_type, "VISA") == 0 && (card_len == 13 || card_len == 16))
     {
         return;
